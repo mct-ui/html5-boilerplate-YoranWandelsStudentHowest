@@ -338,6 +338,8 @@ a:active {
 /* gutter modifiers, these affect o-layout__item too */
 
 .o-layout--gutter {
+  padding: 0 12px;
+  margin: calc($grid-gutter-s * -1);
 }
 
 .o-layout--gutter > .o-layout__item {
