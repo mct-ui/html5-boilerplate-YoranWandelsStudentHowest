@@ -3,7 +3,7 @@
 /*---------------------------------------*/
 
 // import open color
-@import "open-color";
+@import 'open-color';
 
 /*---------------------------------------/*
  # TOOLS
@@ -74,8 +74,8 @@ $ms9: calc($ms8 * $ratio); // 52px
 $ms10: calc($ms9 * $ratio); // 58px
 $ms11: calc($ms10 * $ratio); // 66px
 
-$font-family-primary: "Helvetica Neue", Helvetica, arial, sans-serif;
-$font-family-secondary: "Times New Roman", Times, serif;
+$font-family-primary: 'Helvetica Neue', Helvetica, arial, sans-serif;
+$font-family-secondary: 'Times New Roman', Times, serif;
 
 // ---
 // Settings: Spacing
@@ -110,7 +110,7 @@ $breakpoints: (
 // Grid
 // ---
 
-$container-max-width: calc(1400 / $root-font-size * 1rem);
+$container-max-width: calc(1000 / $root-font-size * 1rem);
 
 // The gutter between columns
 $grid-gutter: $space-m;
@@ -127,16 +127,21 @@ $columns: (2, 3, 4, 5, 6) !default;
 *,
 *:before,
 *:after {
-  // Reset box-sizing
+  box-sizing: border-box;
 }
 
 * {
   // Reset margin and font-size and font-weight
+  margin: 0;
+  font-size: 100%;
+  font-weight: normal;
 }
 
 img {
   // make images block level elements
   // make images responsive
+  display: block;
+  max-width: 100%;
 }
 
 /*---------------------------------------/*
@@ -150,6 +155,10 @@ img {
 */
 
 html {
+  font-size: calc($root-font-size/16 * 100%);
+  font-family: $font-family-primary;
+  line-height: 1.5;
+  color: $color-text;
 }
 
 /*
@@ -157,6 +166,8 @@ html {
 */
 
 ::selection {
+  background-color: $color-primary;
+  color: white;
 }
 
 /*
@@ -166,17 +177,41 @@ html {
 */
 
 h1 {
+  font-size: $ms5;
+  font-weight: 700;
+  margin-bottom: $space-m;
+  line-height: calc($baseline * 5);
+
+  @include mq(bp1) {
+    font-size: $ms9;
+    line-break: calc($baseline * 6);
+  }
+  @include mq(bp2) {
+    font-size: $ms11;
+    line-height: calc($baseline * 8);
+  }
 }
 
 h2 {
+  font-size: $ms3;
+  font-weight: 700;
+  margin-bottom: $space-m;
+  line-height: calc($baseline * 4);
 }
 
 h3 {
+  margin-bottom: space;
+  font-size: $ms1;
+  font-weight: 700;
+  line-height: calc($baseline * 3);
 }
 
 h4,
 h5,
 h6 {
+  font-size: $ms0;
+  font-weight: 700;
+  margin-bottom: $space-m;
 }
 
 p,
@@ -186,39 +221,58 @@ dl,
 table,
 address,
 figure {
+  margin-bottom: $space-m;
 }
 
 ul,
 ol {
+  padding: 0;
+  list-style-position: inside;
 }
 
 li ul,
 li ol {
+  margin-bottom: 0;
 }
 
 blockquote {
+  font-family: $font-family-secondary;
+  font-style: italic;
+  font-size: $ms3;
+  line-height: calc($baseline * 4);
+  margin-bottom: $space-m;
 }
 
 figcaption {
+  margin-bottom: $space-xs;
+  font-size: $ms-1;
+  line-height: calc($baseline * 2);
+  color: $color-text-lighter;
 }
 
 hr {
+  margin-bottom: $space-m;
 }
 
 a {
+  color: $color-primary;
+  transition: all 0.1s ease-in-out;
 }
 
 a:hover {
+  color: $color-primary-light;
 }
 
 a:visited {
+  color: $color-primary;
 }
 
 a:active {
+  color: $color-primary-dark;
 }
 
 /*---------------------------------------/*
- # OBJECTS
+ # OBJECTS 
 /*---------------------------------------*/
 
 /*
@@ -228,6 +282,22 @@ a:active {
 */
 
 .o-row {
+  padding: $space-m $space-m 0;
+  display: flow-root;
+
+  &--primary {
+    background-color: $color-primary;
+    color: white;
+  }
+  &--dark {
+    background-color: $color-text;
+    color: white;
+  }
+  &--l {
+    @include mq(bp2) {
+      padding: $space-l $space-l $space-m;
+    }
+  }
 }
 
 /*
@@ -237,6 +307,9 @@ a:active {
 */
 
 .o-container {
+  margin-left: auto;
+  margin-right: auto;
+  max-width: $container-max-width;
 }
 
 /*

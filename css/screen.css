@@ -10,6 +10,23 @@
 /*---------------------------------------/*
  # GENERIC
 /*---------------------------------------*/
+*,
+*:before,
+*:after {
+  box-sizing: border-box;
+}
+
+* {
+  margin: 0;
+  font-size: 100%;
+  font-weight: normal;
+}
+
+img {
+  display: block;
+  max-width: 100%;
+}
+
 /*---------------------------------------/*
  # ELEMENTS
 /*---------------------------------------*/
@@ -18,27 +35,165 @@
     ---
     Default markup for page level elements
 */
+html {
+  font-size: 100%;
+  font-family: "Helvetica Neue", Helvetica, arial, sans-serif;
+  line-height: 1.5;
+  color: #212529;
+}
+
 /*
     Customize the background color and color to match your design.
 */
+::-moz-selection {
+  background-color: #4c6ef5;
+  color: white;
+}
+::selection {
+  background-color: #4c6ef5;
+  color: white;
+}
+
 /*
     Elements: typography
     ---
     Default markup for typographic elements
 */
+h1 {
+  font-size: 1.8020324707rem;
+  font-weight: 700;
+  margin-bottom: 1.5rem;
+  line-height: 2.5rem;
+}
+@media (min-width: 36.0625em) {
+  h1 {
+    font-size: 2.8865075782rem;
+    line-break: 3rem;
+  }
+}
+@media (min-width: 48.0625em) {
+  h1 {
+    font-size: 3.6532361537rem;
+    line-height: 4rem;
+  }
+}
+
+h2 {
+  font-size: 1.423828125rem;
+  font-weight: 700;
+  margin-bottom: 1.5rem;
+  line-height: 2rem;
+}
+
+h3 {
+  margin-bottom: space;
+  font-size: 1.125rem;
+  font-weight: 700;
+  line-height: 1.5rem;
+}
+
+h4,
+h5,
+h6 {
+  font-size: 1rem;
+  font-weight: 700;
+  margin-bottom: 1.5rem;
+}
+
+p,
+ol,
+ul,
+dl,
+table,
+address,
+figure {
+  margin-bottom: 1.5rem;
+}
+
+ul,
+ol {
+  padding: 0;
+  list-style-position: inside;
+}
+
+li ul,
+li ol {
+  margin-bottom: 0;
+}
+
+blockquote {
+  font-family: "Times New Roman", Times, serif;
+  font-style: italic;
+  font-size: 1.423828125rem;
+  line-height: 2rem;
+  margin-bottom: 1.5rem;
+}
+
+figcaption {
+  margin-bottom: 0.5rem;
+  font-size: 0.8888888889rem;
+  line-height: 1rem;
+  color: #868e96;
+}
+
+hr {
+  margin-bottom: 1.5rem;
+}
+
+a {
+  color: #4c6ef5;
+  transition: all 0.1s ease-in-out;
+}
+
+a:hover {
+  color: #5c7cfa;
+}
+
+a:visited {
+  color: #4c6ef5;
+}
+
+a:active {
+  color: #4263eb;
+}
+
 /*---------------------------------------/*
- # OBJECTS
+ # OBJECTS 
 /*---------------------------------------*/
 /*
     Objects: Row
     ---
     Creates a horizontal row with padding
 */
+.o-row {
+  padding: 1.5rem 1.5rem 0;
+  display: flow-root;
+}
+.o-row--primary {
+  background-color: #4c6ef5;
+  color: white;
+}
+.o-row--dark {
+  background-color: #212529;
+  color: white;
+}
+@media (min-width: 48.0625em) {
+  .o-row--l {
+    padding: 2rem 2rem 1.5rem;
+  }
+}
+
 /*
     Objects: Container
     ---
     Creates a horizontal container that sets de global max-width
 */
+.o-container {
+  margin-left: auto;
+  margin-right: auto;
+  max-width: 62.5rem;
+}
+
 /*
     Objects: Layout
     ---
